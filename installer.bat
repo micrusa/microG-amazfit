@@ -26,14 +26,14 @@ exit
 :UNINSTALL
 echo Uninstalling microG
 adb root
-adb shell mount -o rw,remount /system
-rm -f /system/etc/default-permissions/microg-permissions.xml
-rm -f /system/etc/default-permissions/phonesky-permissions.xml
-rm -f /system/etc/permissions/features.xml
-rm -f /system/priv-app/FakeStore/FakeStore.apk
-rm -f /system/priv-app/GmsCore/GmsCore.apk
-rm -f /system/priv-app/GsfProxy/GsfProxy.apk
-rm -f /system/priv-app/Phonesky/Phonesky.apk
+adb remount
+adb shell rm -f /system/etc/default-permissions/microg-permissions.xml
+adb shell rm -f /system/etc/default-permissions/phonesky-permissions.xml
+adb shell rm -f /system/etc/permissions/features.xml
+adb shell rm -f /system/priv-app/FakeStore/FakeStore.apk
+adb shell rm -f /system/priv-app/GmsCore/GmsCore.apk
+adb shell rm -f /system/priv-app/GsfProxy/GsfProxy.apk
+adb shell rm -f /system/priv-app/Phonesky/Phonesky.apk
 adb shell reboot
 echo MicroG uninstalled
 pause
@@ -44,7 +44,7 @@ exit
 :INSTALL
 echo Installing microG...
 adb root
-adb shell mount -o rw,remount /system
+adb remount
 adb push ./system/etc/default-permissions/microg-permissions.xml /system/etc/default-permissions/microg-permissions.xml
 adb push ./system/etc/default-permissions/phonesky-permissions.xml /system/etc/default-permissions/phonesky-permissions.xml
 adb push ./system/etc/permissions/features.xml /system/etc/permissions/features.xml
