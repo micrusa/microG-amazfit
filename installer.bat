@@ -26,7 +26,7 @@ exit
 :UNINSTALL
 echo Uninstalling microG
 adb root
-adb remount
+adb remount rw
 adb shell rm -f /system/etc/default-permissions/microg-permissions.xml
 adb shell rm -f /system/etc/default-permissions/phonesky-permissions.xml
 adb shell rm -f /system/etc/permissions/features.xml
@@ -44,7 +44,7 @@ exit
 :INSTALL
 echo Installing microG...
 adb root
-adb remount
+adb remount rw
 adb push ./system/etc/default-permissions/microg-permissions.xml /system/etc/default-permissions/microg-permissions.xml
 adb push ./system/etc/default-permissions/phonesky-permissions.xml /system/etc/default-permissions/phonesky-permissions.xml
 adb push ./system/etc/permissions/features.xml /system/etc/permissions/features.xml
